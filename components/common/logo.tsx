@@ -1,7 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-import { Home } from "lucide-react";
 
 export const Logo = ({
   className,
@@ -9,7 +9,7 @@ export const Logo = ({
 }: React.HTMLAttributes<HTMLElement>) => {
   return (
     <Link href="/" className={cn("", className)} {...props}>
-      <Home />
+      <Image src="/logo.svg" alt="Logo" width={160} height={80} />
     </Link>
   );
 };
