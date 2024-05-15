@@ -26,6 +26,7 @@ import { cn } from "@/lib/utils";
 import { routes } from "@/config/site";
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import { Input } from "@/components/ui/input";
+import { SwitcherLanguages } from "@/components/ui/switcher-languages";
 
 export const Navbar = () => {
   const { isScrolled } = useScrollTop(300);
@@ -33,25 +34,12 @@ export const Navbar = () => {
   return (
     <div
       className={cn(
-        "fixed top-0 z-20 w-full h-16 flex justify-between items-center transition-all",
-        isScrolled && "border-b shadow-sm bg-background"
+        "fixed top-0 z-20 w-full h-16 bg-background flex justify-between items-center shadow-2xl transition-all",
+        isScrolled && "border-b shadow-sm h-20"
       )}
     >
       <div className="flex items-center justify-between container">
-        <div className="w-5/6 md:w-1/2 flex items-center gap-x-5">
-          <Logo />
-          {/* <div className="flex items-center gap-x-2 flex-1">
-            <Input
-              type="text"
-              placeholder="Search by activities and dest"
-              className="flex-1"
-            />
-            <Button size="icon">
-              <span className="sr-only">Search</span>
-              <Search className="h-4 w-4" />
-            </Button>
-          </div> */}
-        </div>
+        <Logo className="h-10 w-[140px]" />
         <NavigationMenu className="hidden md:block">
           <NavigationMenuList>
             {routes.map(({ label, href }, index) => (
@@ -78,14 +66,7 @@ export const Navbar = () => {
                 <ShoppingCart className="h-5 w-5" />
               </Link>
             </Button>
-            <Button size="icon" variant="outline">
-              <span className="sr-only">DollarSign</span>
-              <DollarSign className="h-5 w-5" />
-            </Button>
-            <Button size="icon">
-              <span className="sr-only">Languages</span>
-              <Languages className="h-5 w-5" />
-            </Button>
+            <SwitcherLanguages />
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -115,26 +96,19 @@ export const Navbar = () => {
                 ))}
               </NavigationMenuList>
               <div className="flex gap-x-5">
-                <Button size="icon" variant="outline" asChild>
+                <Button size="icon" variant="ghost" asChild>
                   <Link href="/auth/login">
                     <span className="sr-only">Login</span>
                     <User className="h-5 w-5" />
                   </Link>
                 </Button>
-                <Button size="icon" variant="outline" asChild>
+                <Button size="icon" variant="ghost" asChild>
                   <Link href="/cart">
                     <span className="sr-only">ShoppingCart</span>
                     <ShoppingCart className="h-5 w-5" />
                   </Link>
                 </Button>
-                <Button size="icon" variant="outline">
-                  <span className="sr-only">DollarSign</span>
-                  <DollarSign className="h-5 w-5" />
-                </Button>
-                <Button size="icon">
-                  <span className="sr-only">Languages</span>
-                  <Languages className="h-5 w-5" />
-                </Button>
+                <SwitcherLanguages />
               </div>
             </NavigationMenu>
           </SheetContent>
