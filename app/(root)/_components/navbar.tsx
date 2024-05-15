@@ -33,14 +33,14 @@ export const Navbar = () => {
   return (
     <div
       className={cn(
-        "fixed top-0 z-20 bg-background w-full h-16 flex justify-between items-center transition-all",
-        isScrolled && "border-b shadow-sm"
+        "fixed top-0 z-20 w-full h-16 flex justify-between items-center transition-all",
+        isScrolled && "border-b shadow-sm bg-background"
       )}
     >
       <div className="flex items-center justify-between container">
         <div className="w-5/6 md:w-1/2 flex items-center gap-x-5">
           <Logo />
-          <div className="flex items-center gap-x-2 flex-1">
+          {/* <div className="flex items-center gap-x-2 flex-1">
             <Input
               type="text"
               placeholder="Search by activities and dest"
@@ -50,7 +50,7 @@ export const Navbar = () => {
               <span className="sr-only">Search</span>
               <Search className="h-4 w-4" />
             </Button>
-          </div>
+          </div> */}
         </div>
         <NavigationMenu className="hidden md:block">
           <NavigationMenuList>
