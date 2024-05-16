@@ -1,7 +1,7 @@
 import { Categories } from "./_components/categories";
 import { Hero } from "./_components/hero";
 
-export default function Home() {
+export default function PageHome() {
   return (
     <div>
       <Hero />
