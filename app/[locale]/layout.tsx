@@ -19,6 +19,14 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  icons: {
+    icon: [
+      {
+        url: "/icon.svg",
+        href: "/icon.svg",
+      },
+    ],
+  },
 };
 
 const locales = ["en", "ar"];
