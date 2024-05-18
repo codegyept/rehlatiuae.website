@@ -15,6 +15,10 @@ import cat10 from "@/public/categories/cat10.png";
 import cat11 from "@/public/categories/cat11.png";
 import cat12 from "@/public/categories/cat12.png";
 
+import img1 from "@/public/topDestinations/img1.jpg";
+import img2 from "@/public/topDestinations/img2.jpg";
+import img3 from "@/public/topDestinations/img3.jpg";
+
 export const siteConfig = {
   name: "Rehlatiuae",
   description: "Rehlatiuae",
@@ -112,5 +116,36 @@ export const categories = [
     alt: "cat-12",
     src: cat12,
     label: "Transportation",
+  },
+];
+
+export const topDestinations = [
+  {
+    src: img1,
+    label: "Dubai",
+  },
+  {
+    src: img2,
+    label: "Abu Dhabi",
+  },
+  {
+    src: img3,
+    label: "Ras Al Khaimah",
+  },
+  {
+    src: img3,
+    label: "Ras Al Khaimah",
+  },
+  {
+    src: img1,
+    label: "Dubai",
+  },
+  {
+    src: img2,
+    label: "Abu Dhabi",
+  },
+  {
+    src: img3,
+    label: "Ras Al Khaimah",
   },
 ];
