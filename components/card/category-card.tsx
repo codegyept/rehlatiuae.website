@@ -1,21 +1,25 @@
 import Image, { StaticImageData } from "next/image";
 
 interface CategoryCardProps {
-  alt: string;
-  src: string | StaticImageData;
-  label: string;
+  name: string;
+  imagePath: string | StaticImageData;
+  description: string;
 }
 
-export const CategoryCard = ({ alt, src, label }: CategoryCardProps) => {
+export const CategoryCard = ({
+  name,
+  imagePath,
+  description,
+}: CategoryCardProps) => {
   return (
     <>
       <Image
-        alt={alt}
-        src={src}
+        alt={name}
+        src={imagePath}
         fill
         className="object-contain group-hover:-translate-y-6 cursor-pointer scale-75 group-hover:scale-105 duration-300 ease-in-out"
       />
-      <p>{label}</p>
+      <p>{name}</p>
     </>
   );
 };

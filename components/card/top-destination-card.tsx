@@ -2,16 +2,30 @@ import Image, { StaticImageData } from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface TopDestinationCardProps {
-  src: string | StaticImageData;
-  label: string;
+  name: string;
+  description: string;
+  imagePath: string | StaticImageData;
+  country: string;
 }
 
-export const TopDestinationCard = ({ src, label }: TopDestinationCardProps) => {
+export const TopDestinationCard = ({
+  imagePath,
+  name,
+  description,
+  country,
+}: TopDestinationCardProps) => {
   return (
     <Card className="overflow-hidden">
-      <Image alt={label} src={src} className="object-cover w-full h-full" />
+      <Image
+        alt={name}
+        src={imagePath}
+        width={4000}
+        height={4000}
+        className="object-cover w-full h-full"
+      />
       <CardContent className="pt-5">
-        <p className="tracking-wide">{label}</p>
+        <h3 className="tracking-wide">{name}</h3>
+        <p className="text-muted-foreground text-sm">{country}</p>
       </CardContent>
     </Card>
   );

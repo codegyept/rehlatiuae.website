@@ -12,10 +12,18 @@ import {
 import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { TopDestinationCard } from "@/components/card/top-destination-card";
+interface TopDestination {
+  id: number;
+  name: string;
+  description: string;
+  imagePath: string;
+  country: string;
+}
+interface TopDestinationsProps {
+  data: TopDestination[];
+}
 
-import { topDestinations } from "@/config/site";
-
-export const TopDestinations = () => {
+export const TopDestinations = ({ data }: TopDestinationsProps) => {
   return (
     <div className="py-10 container mx-auto">
       <Heading title="Explore World's Top Destinations">
@@ -38,12 +46,17 @@ export const TopDestinations = () => {
         ]}
       >
         <CarouselContent>
-          {topDestinations.map(({ src, label }, index) => (
+          {data.map(({ id, name, description, imagePath, country }) => (
             <CarouselItem
-              key={index}
+              key={id}
               className="relative md:basis-1/2 lg:basis-1/3 xl:basis-1/4 2xl:basis-1/5 3xl:basis-1/6 cursor-pointer"
             >
-              <TopDestinationCard src={src} label={label} />
+              <TopDestinationCard
+                imagePath={imagePath}
+                name={name}
+                description={description}
+                country={country}
+              />
             </CarouselItem>
           ))}
         </CarouselContent>

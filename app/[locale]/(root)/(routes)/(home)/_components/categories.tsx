@@ -13,9 +13,17 @@ import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { CategoryCard } from "@/components/card/category-card";
 
-import { categories } from "@/config/site";
+interface Category {
+  id: number;
+  name: string;
+  description: string;
+  imagePath: string;
+}
+interface CategoriesProps {
+  data: Category[];
+}
 
-export const Categories = () => {
+export const Categories = ({ data }: CategoriesProps) => {
   return (
     <div className="py-10 container mx-auto">
       <Heading title="Rehlatiuae Categories">
@@ -38,12 +46,16 @@ export const Categories = () => {
         ]}
       >
         <CarouselContent>
-          {categories.map(({ src, alt, label }, index) => (
+          {data.map(({ id, name, description, imagePath }) => (
             <CarouselItem
-              key={index}
+              key={id}
               className="relative md:basis-1/2 lg:basis-1/3 xl:basis-1/4 2xl:basis-1/5 3xl:basis-1/6  h-[250px] group flex justify-center items-end"
             >
-              <CategoryCard src={src} alt={alt} label={label} />
+              <CategoryCard
+                imagePath={imagePath}
+                name={name}
+                description={description}
+              />
             </CarouselItem>
           ))}
         </CarouselContent>
