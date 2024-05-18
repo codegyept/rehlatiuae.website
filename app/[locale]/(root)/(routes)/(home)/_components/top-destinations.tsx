@@ -26,7 +26,7 @@ export const TopDestinations = () => {
         </Button>
       </Heading>
       <Carousel
-        className="mt-20"
+        className="mt-10"
         opts={{
           align: "start",
           loop: true,
