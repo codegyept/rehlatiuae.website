@@ -49,7 +49,7 @@ export const TopDestinations = ({ data }: TopDestinationsProps) => {
           {data.map(({ id, name, description, imagePath, country }) => (
             <CarouselItem
               key={id}
-              className="relative md:basis-1/2 lg:basis-1/3 xl:basis-1/4 2xl:basis-1/5 3xl:basis-1/6 cursor-pointer"
+              className="relative md:basis-1/2 lg:basis-1/3 xl:basis-1/4 cursor-pointer"
             >
               <TopDestinationCard
                 imagePath={imagePath}
