@@ -1,32 +1,28 @@
-import { cn } from "@/lib/utils";
+"use client";
 
-interface HeadingProps {
-  title: string;
-  description: string;
-  className?: string;
-  children?: React.ReactNode;
-}
+import { cn } from "@/lib/utils";
+import React, { HTMLAttributes } from "react";
 
 export const Heading = ({
   title,
-  description,
   className,
   children,
-  ...props
-}: HeadingProps) => {
+}: Readonly<{
+  title: string;
+  className?: HTMLAttributes<HTMLElement>;
+  children?: React.ReactNode;
+}>) => {
   return (
     <div
       className={cn(
-        "flex justify-between items-center flex-wrap gap-5",
+        "w-full flex justify-between items-center gap-x-5 container mx-auto border-b py-4",
         className
       )}
-      {...props}
     >
-      <div className="flex flex-col gap-1 max-w-5xl">
-        <h3 className="text-3xl md:text-4xl font-semibold">{title}</h3>
-        <p>{description}</p>
-      </div>
-      {children}
+      <h1 className="text-lg md:text-xl lg:text-2xl tracking-wider flex-1">
+        {title}
+      </h1>
+      <div>{children}</div>
     </div>
   );
 };
