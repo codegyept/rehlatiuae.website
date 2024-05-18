@@ -15,7 +15,7 @@ export const Heading = ({
   return (
     <div
       className={cn(
-        "w-full flex justify-between items-center gap-x-5 container mx-auto border-b py-4",
+        "w-full flex justify-between items-center gap-x-5 border-b py-4",
         className
       )}
     >
