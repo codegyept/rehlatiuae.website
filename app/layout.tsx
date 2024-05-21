@@ -5,6 +5,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 
+import { StoreProvider } from "@/providers/store-provider";
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -33,7 +35,9 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(poppins.className, "font-poppins")}>{children}</body>
+      <body className={cn(poppins.className, "font-poppins")}>
+        <StoreProvider>{children}</StoreProvider>
+      </body>
     </html>
   );
 }

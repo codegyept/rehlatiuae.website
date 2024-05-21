@@ -6,12 +6,12 @@ import { TopDestinations } from "./_components/top-destinations";
 import { BestOffersTrips } from "./_components/best-offers-trips";
 
 export default async function PageHome() {
-  const res = await axios.get("api/v1/home");
+  const res = await axios.get("home");
 
   return (
     <div>
       <Hero />
-      <Categories data={res.data.data.categories} />
+      <Categories />
       <TopDestinations data={res.data.data.topDestinations} />
       <BestOffersTrips data={res.data.data.bestOffers} />
     </div>
