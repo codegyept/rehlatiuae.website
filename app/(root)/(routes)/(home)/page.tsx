@@ -12,6 +12,7 @@ import { TopDestinations } from "./_components/top-destinations";
 import { BestOffersTrips } from "./_components/best-offers-trips";
 import { BestTrips } from "./_components/best-trips";
 import { PopularExperiences } from "./_components/popular-experiences";
+import { WhyChooseUs } from "./_components/why-choose-us";
 
 export default function PageHome() {
   const dispatch = useDispatch<AppDispatch>();
@@ -31,6 +32,7 @@ export default function PageHome() {
       <BestOffersTrips />
       <BestTrips />
       <PopularExperiences />
+      <WhyChooseUs />
     </div>
   );
 }
