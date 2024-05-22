@@ -10,6 +10,7 @@ import { Hero } from "./_components/hero";
 import { Categories } from "./_components/categories";
 import { TopDestinations } from "./_components/top-destinations";
 import { BestOffersTrips } from "./_components/best-offers-trips";
+import { BestTrips } from "./_components/best-trips";
 
 export default function PageHome() {
   const dispatch = useDispatch<AppDispatch>();
@@ -27,6 +28,7 @@ export default function PageHome() {
       <Categories />
       <TopDestinations />
       <BestOffersTrips />
+      <BestTrips />
     </div>
   );
 }

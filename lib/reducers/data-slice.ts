@@ -9,6 +9,7 @@ interface DataState {
       categories: any[];
       topDestinations: any[];
       bestOffers: any[];
+      bestTrips: any[];
     } | null;
   };
 
