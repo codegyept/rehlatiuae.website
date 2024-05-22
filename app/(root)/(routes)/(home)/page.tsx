@@ -26,7 +26,7 @@ export default function PageHome() {
       <Hero />
       <Categories />
       <TopDestinations />
-      {/* <BestOffersTrips data={res.data.data.bestOffers} /> */}
+      <BestOffersTrips />
     </div>
   );
 }

@@ -8,6 +8,7 @@ interface DataState {
     data: {
       categories: any[];
       topDestinations: any[];
+      bestOffers: any[];
     } | null;
   };
 

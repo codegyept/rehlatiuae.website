@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
 
 import { BestOffersTrip } from "@/interface";
 
@@ -37,6 +38,15 @@ export const BestOffersTripCard = ({ data }: BestOffersTripCardProps) => {
         ) : (
           <Carousel>
             <CarouselContent>
+              <CarouselItem>
+                <Image
+                  src={data.imagePath}
+                  alt={data.name}
+                  width={1000}
+                  height={1000}
+                  className="object-cover h-[200px] w-full"
+                />
+              </CarouselItem>
               {data.images.map(({ id, imagePath }) => (
                 <CarouselItem key={id}>
                   <Image
@@ -70,5 +80,15 @@ export const BestOffersTripCard = ({ data }: BestOffersTripCardProps) => {
         <Button size="sm">Book now</Button>
       </CardFooter>
     </Card>
+  );
+};
+
+export const BestOffersTripCardSkeleton = () => {
+  return (
+    <div className="space-y-3">
+      <Skeleton className="h-[250px] rounded-md" />
+      <Skeleton className="h-[18px] rounded-md" />
+      <Skeleton className="w-2/3 h-[18px] rounded-md" />
+    </div>
   );
 };
