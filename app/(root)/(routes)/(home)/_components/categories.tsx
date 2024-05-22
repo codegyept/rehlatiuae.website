@@ -40,7 +40,7 @@ export const Categories = () => {
         </Button>
       </Heading>
       {status === "loading" && (
-        <div className="mt-10 flex items-center justify-start gap-5 overflow-x-hidden">
+        <div className="mt-10 grid grid-flow-col grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:gap-5">
           <CategoryCardSkeleton />
           <CategoryCardSkeleton />
           <CategoryCardSkeleton />
