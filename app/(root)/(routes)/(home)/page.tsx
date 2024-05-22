@@ -1,19 +1,32 @@
-import axios from "@/lib/axios";
+"use client";
+
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { RootState, AppDispatch } from "@/lib/store";
+import { fetchData } from "@/lib/reducers/data-slice";
 
 import { Hero } from "./_components/hero";
 import { Categories } from "./_components/categories";
 import { TopDestinations } from "./_components/top-destinations";
 import { BestOffersTrips } from "./_components/best-offers-trips";
 
-export default async function PageHome() {
-  const res = await axios.get("home");
+export default function PageHome() {
+  const dispatch = useDispatch<AppDispatch>();
+  const { status } = useSelector((state: RootState) => state.data);
+
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchData("home"));
+    }
+  }, [status, dispatch]);
 
   return (
     <div>
       <Hero />
       <Categories />
-      <TopDestinations data={res.data.data.topDestinations} />
-      <BestOffersTrips data={res.data.data.bestOffers} />
+      <TopDestinations />
+      {/* <BestOffersTrips data={res.data.data.bestOffers} /> */}
     </div>
   );
 }

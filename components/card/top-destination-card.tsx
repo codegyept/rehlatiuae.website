@@ -1,5 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface TopDestinationCardProps {
   name: string;
@@ -28,5 +29,15 @@ export const TopDestinationCard = ({
         <p className="text-muted-foreground text-sm">{country}</p>
       </CardContent>
     </Card>
+  );
+};
+
+export const TopDestinationCardSkeleton = () => {
+  return (
+    <div className="space-y-3">
+      <Skeleton className="h-[250px] rounded-md" />
+      <Skeleton className="h-[18px] rounded-md" />
+      <Skeleton className="w-2/3 h-[18px] rounded-md" />
+    </div>
   );
 };

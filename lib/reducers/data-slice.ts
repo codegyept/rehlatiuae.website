@@ -2,26 +2,34 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "@/lib/axios";
 
 interface DataState {
-  data: any[];
+  data: {
+    message: string;
+    status: boolean;
+    data: {
+      categories: any[];
+      topDestinations: any[];
+    } | null;
+  };
+
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
 }
 
 const initialState: DataState = {
-  data: [],
+  data: {
+    data: null,
+    status: false,
+    message: "",
+  },
   status: "idle",
   error: null,
 };
 
 export const fetchData = createAsyncThunk(
   "data/fetchData",
-  async ({ endpoint, key }: { endpoint: string; key: string }) => {
+  async (endpoint: string) => {
     const response = await axios.get(endpoint);
-    if (key) {
-      return response.data.data[key];
-    } else {
-      return response.data;
-    }
+    return response.data;
   }
 );
 

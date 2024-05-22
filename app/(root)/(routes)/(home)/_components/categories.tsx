@@ -1,14 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
-import { ArrowUpRight, TriangleAlert } from "lucide-react";
-import { useSelector, useDispatch } from "react-redux";
-
 import Link from "next/link";
 import Autoplay from "embla-carousel-autoplay";
 
-import { RootState, AppDispatch } from "@/lib/store";
-import { fetchData } from "@/lib/reducers/data-slice";
+import { RootState } from "@/lib/store";
+import { useSelector } from "react-redux";
+import { ArrowUpRight, TriangleAlert } from "lucide-react";
 
 import {
   Carousel,
@@ -22,15 +19,18 @@ import {
 import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 
-export const Categories = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { data, status, error } = useSelector((state: RootState) => state.data);
+interface Category {
+  id: number;
+  name: string;
+  description: string;
+  imagePath: string;
+  country: string;
+}
 
-  useEffect(() => {
-    if (status === "idle") {
-      dispatch(fetchData({ endpoint: "home/categories", key: "categories" }));
-    }
-  }, [status, dispatch]);
+export const Categories = () => {
+  const { data, status } = useSelector((state: RootState) => state.data);
+
+  console.log(data);
 
   return (
     <div className="py-10 container mx-auto">
@@ -41,14 +41,6 @@ export const Categories = () => {
           </Link>
         </Button>
       </Heading>
-      {status === "failed" && (
-        <div className="h-[200px] flex justify-center items-center">
-          <p className="text-muted-foreground flex items-center">
-            <TriangleAlert className="h-5 w-5 mr-2" />
-            No result
-          </p>
-        </div>
-      )}
       {status === "loading" && (
         <div className="mt-10 flex items-center justify-start gap-5 overflow-x-hidden">
           <CategoryCardSkeleton />
@@ -73,20 +65,30 @@ export const Categories = () => {
           ]}
         >
           <CarouselContent>
-            {data.map(({ id, name, description, imagePath }) => (
-              <CarouselItem
-                key={id}
-                className="relative basis-1/2 lg:basis-1/3 xl:basis-1/4 2xl:basis-1/5 3xl:basis-1/6  h-[250px] group flex justify-center items-end"
-              >
-                <CategoryCard
-                  imagePath={imagePath}
-                  name={name}
-                  description={description}
-                />
-              </CarouselItem>
-            ))}
+            {data?.data?.categories.map(
+              ({ id, name, description, imagePath }: Category) => (
+                <CarouselItem
+                  key={id}
+                  className="relative basis-1/2 lg:basis-1/3 xl:basis-1/4 2xl:basis-1/5 3xl:basis-1/6  h-[250px] group flex justify-center items-end"
+                >
+                  <CategoryCard
+                    imagePath={imagePath}
+                    name={name}
+                    description={description}
+                  />
+                </CarouselItem>
+              )
+            )}
           </CarouselContent>
         </Carousel>
+      )}
+      {status === "failed" && (
+        <div className="h-[200px] flex justify-center items-center">
+          <p className="text-muted-foreground flex items-center">
+            <TriangleAlert className="h-5 w-5 mr-2" />
+            No result
+          </p>
+        </div>
       )}
     </div>
   );
