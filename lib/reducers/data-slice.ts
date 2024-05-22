@@ -10,6 +10,7 @@ interface DataState {
       topDestinations: any[];
       bestOffers: any[];
       bestTrips: any[];
+      popularExperiencetrips: any[];
     } | null;
   };
 
