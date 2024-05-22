@@ -13,7 +13,7 @@ export const CategoryCard = ({
   description,
 }: CategoryCardProps) => {
   return (
-    <div>
+    <>
       <Image
         alt={name}
         src={imagePath}
@@ -23,7 +23,7 @@ export const CategoryCard = ({
       />
       <span className="sr-only">{description}</span>
       <p>{name}</p>
-    </div>
+    </>
   );
 };
 

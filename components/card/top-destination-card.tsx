@@ -20,8 +20,8 @@ export const TopDestinationCard = ({
       <Image
         alt={name}
         src={imagePath}
-        width={4000}
-        height={4000}
+        width={1000}
+        height={1000}
         className="object-cover w-full h-full"
       />
       <CardContent className="pt-5">
