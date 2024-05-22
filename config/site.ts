@@ -182,3 +182,30 @@ export const features = [
       "Didn't love it? We'll save you your money. Not cocky, just confident.",
   },
 ];
+
+export const services = [
+  {
+    id: 0,
+    title: "Trust",
+    description:
+      "We visit places periodically and make sure that all places are as we describe them in our descriptions.",
+  },
+  {
+    id: 1,
+    title: "Safety",
+    description:
+      "We at Rehlatiuae do regular follow-up and conduct some experiments to ensure that all areas are safe for you and your family. We have plans to ensure the best places for you and your family.",
+  },
+  {
+    id: 2,
+    title: "Quick booking",
+    description:
+      "In just a few steps you will be able to book all the exciting events for you and your family and you can also share the fun with them.",
+  },
+  {
+    id: 3,
+    title: "Save money",
+    description:
+      "We at Rahlatyuae offer many discounts and many events at the most reasonable prices at very competitive prices.",
+  },
+];
