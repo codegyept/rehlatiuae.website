@@ -24,7 +24,7 @@ export const BestTrips = () => {
 
   return (
     <div className="py-10 container mx-auto">
-      <Heading title="Rehlatiuae Categories">
+      <Heading title="Rehlatiuae Best Trips">
         <Button className="px-0 tracking-wide" variant="link" asChild>
           <Link href="/categories">
             see all <ArrowUpRight className="h-5 w-5 ml-2" />

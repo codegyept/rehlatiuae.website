@@ -30,8 +30,6 @@ interface Category {
 export const Categories = () => {
   const { data, status } = useSelector((state: RootState) => state.data);
 
-  console.log(data);
-
   return (
     <div className="py-10 container mx-auto">
       <Heading title="Rehlatiuae Categories">
