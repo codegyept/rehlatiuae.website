@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import appStore from "@/public/app-store.png";
 import googlePlay from "@/public/google-play.png";
+import icon from "@/public/icon.svg";
 import { links } from "@/config/site";
 
 import { Button } from "@/components/ui/button";
@@ -11,6 +12,14 @@ import { Separator } from "@/components/ui/separator";
 export const Footer = () => {
   return (
     <footer className="py-10 pt-40 container mx-auto space-y-10">
+      <div className="flex flex-col justify-center items-center gap-y-3 text-center max-w-3xl mx-auto mb-20">
+        <Image src={icon} alt="Logo" width={200} height={100} />
+        <p className="text-sm leading-8">
+          Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis
+          nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate
+          velit imperdiet dolor tempor tristique. Pellentesque habitant
+        </p>
+      </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
         {links.map(({ title, children }, index) => (
           <div
