@@ -31,34 +31,46 @@ export const Partners = () => {
   const { data, status } = useSelector((state: RootState) => state.data);
 
   return (
-    <div className="py-10 container mx-auto">
-      <Heading title="Our Partners">
-        <Button className="px-0 tracking-wide" variant="link" asChild>
-          <Link href="/partners">
-            see all <ArrowUpRight className="h-5 w-5 ml-2" />
-          </Link>
-        </Button>
-      </Heading>
-      {status === "loading" && (
-        <div className="mt-10 grid grid-flow-col grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:gap-5">
-          <PartnerCardSkeleton />
-          <PartnerCardSkeleton />
-          <PartnerCardSkeleton />
-          <PartnerCardSkeleton />
-          <PartnerCardSkeleton />
-          <PartnerCardSkeleton />
-        </div>
-      )}
+    <>
+      <div className="py-10 container mx-auto">
+        <Heading title="Our Partners">
+          <Button className="px-0 tracking-wide" variant="link" asChild>
+            <Link href="/partners">
+              see all <ArrowUpRight className="h-5 w-5 ml-2" />
+            </Link>
+          </Button>
+        </Heading>
+        {status === "loading" && (
+          <div className="mt-10 grid grid-flow-col grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:gap-5">
+            <PartnerCardSkeleton />
+            <PartnerCardSkeleton />
+            <PartnerCardSkeleton />
+            <PartnerCardSkeleton />
+            <PartnerCardSkeleton />
+            <PartnerCardSkeleton />
+          </div>
+        )}
+        {status === "failed" && (
+          <div className="h-[200px] flex justify-center items-center">
+            <p className="text-muted-foreground flex items-center">
+              <TriangleAlert className="h-5 w-5 mr-2" />
+              No result
+            </p>
+          </div>
+        )}
+      </div>
+
       {status === "succeeded" && (
         <Carousel
           className="mt-10"
           opts={{
             align: "start",
             loop: true,
+            duration: 5000,
           }}
           plugins={[
             Autoplay({
-              delay: 3000,
+              delay: 500,
             }),
           ]}
         >
@@ -80,14 +92,6 @@ export const Partners = () => {
           </CarouselContent>
         </Carousel>
       )}
-      {status === "failed" && (
-        <div className="h-[200px] flex justify-center items-center">
-          <p className="text-muted-foreground flex items-center">
-            <TriangleAlert className="h-5 w-5 mr-2" />
-            No result
-          </p>
-        </div>
-      )}
-    </div>
+    </>
   );
 };

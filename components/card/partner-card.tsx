@@ -19,10 +19,9 @@ export const PartnerCard = ({
         src={imagePath}
         fill
         sizes="100"
-        className="object-contain group-hover:-translate-y-6 cursor-pointer scale-75 group-hover:scale-105 duration-300 ease-in-out"
+        className="object-contain cursor-pointer"
       />
       <span className="sr-only">{description}</span>
-      <p>{name}</p>
     </>
   );
 };
