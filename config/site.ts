@@ -209,3 +209,61 @@ export const services = [
       "We at Rahlatyuae offer many discounts and many events at the most reasonable prices at very competitive prices.",
   },
 ];
+
+export const links = [
+  {
+    title: "Destinations",
+    children: [
+      {
+        label: "Dubai",
+        url: "/",
+      },
+      {
+        label: "Abu Dhabi",
+        url: "/",
+      },
+      {
+        label: "Ras Al Khaima",
+        url: "/",
+      },
+      {
+        label: "Contact us",
+        url: "/",
+      },
+    ],
+  },
+  {
+    title: "Useful",
+    children: [
+      {
+        label: "About Us",
+        url: "/",
+      },
+      {
+        label: "Rehlatiuae Story",
+        url: "/",
+      },
+    ],
+  },
+  {
+    title: "Other",
+    children: [
+      {
+        label: "Privacy & Policy",
+        url: "/",
+      },
+      {
+        label: "Terms of use",
+        url: "/",
+      },
+      {
+        label: "Rehlatiuae Blog",
+        url: "/",
+      },
+      {
+        label: "Our Team",
+        url: "/",
+      },
+    ],
+  },
+];

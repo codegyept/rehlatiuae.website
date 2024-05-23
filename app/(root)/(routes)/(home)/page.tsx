@@ -26,7 +26,7 @@ export default function PageHome() {
   }, [status, dispatch]);
 
   return (
-    <div>
+    <main>
       <Hero />
       <Categories />
       <TopDestinations />
@@ -35,6 +35,6 @@ export default function PageHome() {
       <PopularExperiences />
       <WhyChooseUs />
       <Services />
-    </div>
+    </main>
   );
 }
