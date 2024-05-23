@@ -1,14 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  DollarSign,
-  Languages,
-  Menu,
-  Search,
-  ShoppingCart,
-  User,
-} from "lucide-react";
+import { Menu, ShoppingCart, User } from "lucide-react";
 
 import {
   NavigationMenu,
@@ -19,14 +12,12 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-
 import { Logo } from "@/components/common/logo";
+import { SwitcherLanguages } from "@/components/ui/switcher-languages";
 
 import { cn } from "@/lib/utils";
 import { routes } from "@/config/site";
 import { useScrollTop } from "@/hooks/use-scroll-top";
-import { Input } from "@/components/ui/input";
-import { SwitcherLanguages } from "@/components/ui/switcher-languages";
 
 export const Navbar = () => {
   const { isScrolled } = useScrollTop(300);
@@ -34,8 +25,8 @@ export const Navbar = () => {
   return (
     <div
       className={cn(
-        "fixed top-0 z-20 w-full h-16 bg-background flex justify-between items-center shadow-2xl transition-all",
-        isScrolled && "border-b shadow-sm h-20"
+        "fixed top-0 z-20 w-full h-14 bg-transparent flex justify-between items-center  transition-all",
+        isScrolled && "bg-background h-20 shadow-xl"
       )}
     >
       <div className="flex items-center justify-between container">
@@ -44,24 +35,41 @@ export const Navbar = () => {
           <NavigationMenuList>
             {routes.map(({ label, href }, index) => (
               <NavigationMenuItem key={index}>
-                <Link href={href} legacyBehavior passHref>
-                  <NavigationMenuLink
-                    className={cn("capitalize", navigationMenuTriggerStyle())}
+                <Button asChild variant={isScrolled ? "ghost" : "link"}>
+                  <Link
+                    href={href}
+                    passHref
+                    className={cn(
+                      "capitalize text-white",
+                      isScrolled && "text-primary"
+                    )}
                   >
                     {label}
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </Button>
               </NavigationMenuItem>
             ))}
 
-            <Button size="icon" variant="ghost" asChild>
-              <Link href="/auth/login">
+            <Button size="icon" variant="link" asChild>
+              <Link
+                href="/auth/login"
+                className={cn(
+                  "capitalize text-white",
+                  isScrolled && "text-primary"
+                )}
+              >
                 <span className="sr-only">Login</span>
                 <User className="h-5 w-5" />
               </Link>
             </Button>
-            <Button size="icon" variant="ghost" asChild>
-              <Link href="/cart">
+            <Button size="icon" variant="link" asChild>
+              <Link
+                href="/cart"
+                className={cn(
+                  "capitalize text-white",
+                  isScrolled && "text-primary"
+                )}
+              >
                 <span className="sr-only">ShoppingCart</span>
                 <ShoppingCart className="h-5 w-5" />
               </Link>
@@ -71,7 +79,12 @@ export const Navbar = () => {
         </NavigationMenu>
 
         <Sheet>
-          <Button size="icon" variant="outline" asChild>
+          <Button
+            size="icon"
+            variant={isScrolled ? "outline" : "ghost"}
+            asChild
+            className={cn("text-white", isScrolled && "text-primary")}
+          >
             <SheetTrigger className="block md:hidden">
               <span className="sr-only">Menu</span>
               <Menu className="h-5 w-5" />
@@ -96,13 +109,13 @@ export const Navbar = () => {
                 ))}
               </NavigationMenuList>
               <div className="flex gap-x-5">
-                <Button size="icon" variant="ghost" asChild>
+                <Button size="icon" variant="link" asChild>
                   <Link href="/auth/login">
                     <span className="sr-only">Login</span>
                     <User className="h-5 w-5" />
                   </Link>
                 </Button>
-                <Button size="icon" variant="ghost" asChild>
+                <Button size="icon" variant="link" asChild>
                   <Link href="/cart">
                     <span className="sr-only">ShoppingCart</span>
                     <ShoppingCart className="h-5 w-5" />

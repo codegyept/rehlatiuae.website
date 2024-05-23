@@ -8,7 +8,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="h-full w-full flex flex-col justify-between gap-10 overflow-x-hidden">
+    <div className="h-full w-full flex flex-col justify-between gap-10">
       <Navbar />
       <WhatsappButton />
       {children}
