@@ -14,6 +14,7 @@ import { BestTrips } from "./_components/best-trips";
 import { PopularExperiences } from "./_components/popular-experiences";
 import { WhyChooseUs } from "./_components/why-choose-us";
 import { Services } from "./_components/services";
+import { Blogs } from "./_components/blogs";
 
 export default function PageHome() {
   const dispatch = useDispatch<AppDispatch>();
@@ -35,6 +36,7 @@ export default function PageHome() {
       <PopularExperiences />
       <WhyChooseUs />
       <Services />
+      <Blogs />
     </main>
   );
 }
