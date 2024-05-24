@@ -66,17 +66,20 @@ export const BestOffersTripCard = ({ data }: BestOffersTripCardProps) => {
       </CardHeader>
       <CardContent className="py-5">
         <div className="flex items-center justify-between gap-x-2">
-          <h3 className="tracking-wide">{data.name}</h3>
-          <p className="text-sm text-green text-nowrap text-muted-foreground">
-            Price {data.childPrice}$
-          </p>
+          <h3 className="tracking-wide truncate">{data.name}</h3>
+          <p className="text-sm text-nowrap">{data.oldPrice}$ / person</p>
         </div>
-        <p className="truncate text-sm text-muted-foreground">
+        <p className="truncate pt-1 text-sm text-muted-foreground">
           {data.description}
         </p>
       </CardContent>
       <CardFooter className="flex justify-between items-center">
-        <Badge className="bg-green">Save {data.saving}%</Badge>
+        <div className="flex items-center gap-x-2">
+          <span className="line-through text-muted-foreground text-sm">
+            {data.beforePrice}$
+          </span>
+          <Badge className="bg-green">Save {data.saving}%</Badge>
+        </div>
         <Button size="sm">Book now</Button>
       </CardFooter>
     </Card>
