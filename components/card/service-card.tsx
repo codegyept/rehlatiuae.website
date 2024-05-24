@@ -14,8 +14,8 @@ interface ServiceCardProps {
 
 export const ServiceCard = ({ title, description }: ServiceCardProps) => {
   return (
-    <Card className="border-none shadow-none">
-      <CardHeader>
+    <Card className="border-none shadow-none px-0">
+      <CardHeader className="px-0">
         <CardTitle className="tracking-wide text-xl flex items-center justify-start">
           <Circle className="h-4 w-4 mr-2" />
           {title}

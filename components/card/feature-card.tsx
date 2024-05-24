@@ -19,8 +19,8 @@ export const FeatureCard = ({
   description,
 }: FeatureCardProps) => {
   return (
-    <Card className="border-none shadow-none">
-      <CardHeader>
+    <Card className="border-none shadow-none px-0">
+      <CardHeader className="px-0">
         <div className="bg-blue/20 w-12 h-12 rounded-full relative mb-5">
           <Icon className="h-10 w-10 absolute top-2 left-5" />
         </div>
