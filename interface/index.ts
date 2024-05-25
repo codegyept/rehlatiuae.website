@@ -110,9 +110,11 @@ export interface PopularExperience {
 }
 
 export interface Category {
+  id: number;
   name: string;
-  imagePath: string;
   description: string;
+  imagePath: string;
+  country: string;
 }
 
 export interface Blog {
