@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import {
   Card,
   CardContent,
@@ -13,9 +12,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button";
 
 import { BestTrip } from "@/interface";
 
@@ -25,7 +23,7 @@ interface BestTripCardProps {
 
 export const BestTripCard = ({ data }: BestTripCardProps) => {
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden shadow-sm">
       <CardHeader className="p-0 relative">
         {data.images.length < 1 ? (
           <Image
@@ -33,7 +31,10 @@ export const BestTripCard = ({ data }: BestTripCardProps) => {
             alt={data.name}
             width={1000}
             height={1000}
-            className="object-cover h-[200px] w-full"
+            className="object-cover h-[250px] w-full"
+            onError={(e) => {
+              e.currentTarget.src = "/image-error.jpg";
+            }}
           />
         ) : (
           <Carousel>
@@ -44,7 +45,10 @@ export const BestTripCard = ({ data }: BestTripCardProps) => {
                   alt={data.name}
                   width={1000}
                   height={1000}
-                  className="object-cover h-[200px] w-full"
+                  className="object-cover h-[250px] w-full"
+                  onError={(e) => {
+                    e.currentTarget.src = "/image-error.jpg";
+                  }}
                 />
               </CarouselItem>
               {data.images.map(({ id, imagePath }) => (
@@ -54,7 +58,10 @@ export const BestTripCard = ({ data }: BestTripCardProps) => {
                     alt={`${data.name}-${id}`}
                     width={1000}
                     height={1000}
-                    className="object-cover h-[200px] w-full"
+                    className="object-cover h-[250px] w-full"
+                    onError={(e) => {
+                      e.currentTarget.src = "/image-error.jpg";
+                    }}
                   />
                 </CarouselItem>
               ))}
@@ -64,34 +71,24 @@ export const BestTripCard = ({ data }: BestTripCardProps) => {
           </Carousel>
         )}
       </CardHeader>
-      <CardContent className="py-5">
-        <div className="flex items-center justify-between gap-x-2">
-          <h3 className="tracking-wide truncate">{data.name}</h3>
-          <p className="text-sm text-nowrap">{data.oldPrice}$ / person</p>
+      <CardContent className="p-4">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="font-semibold text-lg truncate">{data.name}</h3>
+          <p className="text-sm whitespace-nowrap">{data.oldPrice}$ / person</p>
         </div>
-        <p className="truncate pt-1 text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground truncate">
           {data.description}
         </p>
       </CardContent>
-      <CardFooter className="flex justify-between items-center">
+      <CardFooter className="flex justify-between items-center p-4">
         <div className="flex items-center gap-x-2">
           <span className="line-through text-muted-foreground text-sm">
             {data.beforePrice}$
           </span>
-          <Badge className="bg-green">Save {data.saving}%</Badge>
+          <Badge className="bg-green px-2 py-1">Save {data.saving}%</Badge>
         </div>
         <Button size="sm">Book now</Button>
       </CardFooter>
     </Card>
-  );
-};
-
-export const BestTripCardSkeleton = () => {
-  return (
-    <div className="space-y-3">
-      <Skeleton className="h-[250px] rounded-md" />
-      <Skeleton className="h-[18px] rounded-md" />
-      <Skeleton className="w-2/3 h-[18px] rounded-md" />
-    </div>
   );
 };
