@@ -22,7 +22,7 @@ export const Partners = () => {
   switch (status) {
     case "loading":
       content = (
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5">
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5">
           <PartnerCardSkeleton />
           <PartnerCardSkeleton />
           <PartnerCardSkeleton className="hidden md:block " />
@@ -34,7 +34,7 @@ export const Partners = () => {
       break;
     case "failed":
       content = (
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5">
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5">
           <PartnerCardSkeleton />
           <PartnerCardSkeleton />
           <PartnerCardSkeleton className="hidden md:block " />
