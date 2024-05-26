@@ -206,3 +206,11 @@ export interface Blog {
     five_star: number;
   };
 }
+
+export interface Partner {
+  id: number;
+  name: string;
+  description: string;
+  imagePath: string;
+  country: string;
+}

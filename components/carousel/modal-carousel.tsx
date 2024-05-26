@@ -9,6 +9,7 @@ interface ModalCarouselProps {
   align?: "start" | "center" | "end";
   loop?: boolean;
   delay?: number;
+  duration?: number;
 }
 
 export const ModalCarousel = ({
@@ -16,10 +17,12 @@ export const ModalCarousel = ({
   align = "start",
   loop = true,
   delay = 3000,
+  duration,
 }: ModalCarouselProps) => {
   const carouselOptions: EmblaOptionsType = {
     align,
     loop,
+    duration,
   };
 
   const autoplayOptions = Autoplay({

@@ -50,7 +50,7 @@ export const Categories = () => {
           {data?.data?.categories?.map((data: Category, index: Key) => (
             <CarouselItem
               key={index}
-              className="relative basis-1/2 lg:basis-1/3 xl:basis-1/4 2xl:basis-1/6 cursor-pointer"
+              className="relative basis-1/2 md:basis-1/4 lg:basis-1/6 cursor-pointer"
             >
               <CategoryCard data={data} />
             </CarouselItem>
