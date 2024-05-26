@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import {
   PartnerCard,
   PartnerCardSkeleton,
-} from "@/components/card/partner-card";
+} from "@/components/cards/partner-card";
 import { CarouselItem } from "@/components/ui/carousel";
 import { HeadingCarousel } from "@/components/carousel/heading-carousel";
 import { ModalCarousel } from "@/components/carousel/modal-carousel";

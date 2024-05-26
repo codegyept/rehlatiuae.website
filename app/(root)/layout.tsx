@@ -1,6 +1,5 @@
-import { Footer } from "./_components/footer";
-import { Navbar } from "./_components/navbar";
 import { WhatsappButton } from "@/components/common/whatsapp-button";
+import { Footer, Navbar } from "@/components/sections";
 
 export default function RootLayout({
   children,

@@ -4,30 +4,30 @@ import { Key } from "react";
 import { RootState } from "@/lib/store";
 import { useSelector } from "react-redux";
 
-import { TopDestinationCard } from "@/components/card/top-destination-card";
-import { SkeletonCard } from "@/components/card/skeleton-card";
+import { BestOffersTripCard } from "@/components/cards/best-offers-trip-card";
+import { SkeletonCard } from "@/components/cards/skeleton-card";
 import { SectionCarousel } from "@/components/carousel/section-carousel";
 import { CarouselItem } from "@/components/ui/carousel";
 
-import { TopDestination } from "@/interface";
+import { BestOffersTrip } from "@/interface";
 
-export const TopDestinations = () => {
+export const BestOffersTrips = () => {
   const { data, status } = useSelector((state: RootState) => state.data);
 
   return (
     <SectionCarousel
-      title="Explore World's Top Destinations"
-      href="/top-destinations"
+      title="Rehlatiuae Best Offers Trips"
+      href="/best-offers-trips"
       label="See All"
       status={status}
       componentSkeleton={SkeletonCard}
     >
-      {data?.data?.topDestinations?.map((data: TopDestination, index: Key) => (
+      {data?.data?.bestOffers?.map((data: BestOffersTrip, index: Key) => (
         <CarouselItem
           key={index}
           className="relative md:basis-1/2 lg:basis-1/3 xl:basis-1/4 cursor-pointer"
         >
-          <TopDestinationCard data={data} />
+          <BestOffersTripCard data={data} />
         </CarouselItem>
       ))}
     </SectionCarousel>

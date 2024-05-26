@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import service from "@/public/service.png";
 import { services } from "@/config/site";
 
-import { ServiceCard } from "@/components/card/service-card";
+import { ServiceCard } from "@/components/cards/service-card";
 import { Button } from "@/components/ui/button";
 
 export const Services = () => {

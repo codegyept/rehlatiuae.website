@@ -2,7 +2,7 @@ import Image from "next/image";
 import whyChooseUs from "@/public/why-choose-us.jpg";
 
 import { features } from "@/config/site";
-import { FeatureCard } from "@/components/card/feature-card";
+import { FeatureCard } from "@/components/cards/feature-card";
 
 export const WhyChooseUs = () => {
   return (

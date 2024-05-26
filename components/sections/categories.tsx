@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import {
   CategoryCard,
   CategoryCardSkeleton,
-} from "@/components/card/category-card";
+} from "@/components/cards/category-card";
 import { CarouselItem } from "@/components/ui/carousel";
 import { HeadingCarousel } from "@/components/carousel/heading-carousel";
 import { ModalCarousel } from "@/components/carousel/modal-carousel";

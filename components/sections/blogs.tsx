@@ -4,7 +4,7 @@ import { Key } from "react";
 import { RootState } from "@/lib/store";
 import { useSelector } from "react-redux";
 
-import { BlogCard, BlogCardSkeleton } from "@/components/card/blog-card";
+import { BlogCard, BlogCardSkeleton } from "@/components/cards/blog-card";
 import { SectionCarousel } from "@/components/carousel/section-carousel";
 import { CarouselItem } from "@/components/ui/carousel";
 

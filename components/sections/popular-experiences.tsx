@@ -4,8 +4,8 @@ import { Key } from "react";
 import { RootState } from "@/lib/store";
 import { useSelector } from "react-redux";
 
-import { PopularExperienceCard } from "@/components/card/popular-experience-card";
-import { SkeletonCard } from "@/components/card/skeleton-card";
+import { PopularExperienceCard } from "@/components/cards/popular-experience-card";
+import { SkeletonCard } from "@/components/cards/skeleton-card";
 import { SectionCarousel } from "@/components/carousel/section-carousel";
 import { CarouselItem } from "@/components/ui/carousel";
 
