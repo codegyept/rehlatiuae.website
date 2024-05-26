@@ -117,6 +117,13 @@ export interface Category {
   country: string;
 }
 
+export interface TopDestination {
+  id: number;
+  name: string;
+  description: string;
+  imagePath: string;
+  country: string;
+}
 export interface Blog {
   id: number;
   name: string;

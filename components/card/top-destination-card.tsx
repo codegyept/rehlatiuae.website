@@ -1,43 +1,28 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+import { TopDestination } from "@/interface";
 import { Card, CardContent } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
 
 interface TopDestinationCardProps {
-  name: string;
-  description: string;
-  imagePath: string | StaticImageData;
-  country: string;
+  data: TopDestination;
 }
 
-export const TopDestinationCard = ({
-  imagePath,
-  name,
-  description,
-  country,
-}: TopDestinationCardProps) => {
+export const TopDestinationCard = ({ data }: TopDestinationCardProps) => {
   return (
-    <Card className="overflow-hidden">
+    <Card>
       <Image
-        alt={name}
-        src={imagePath}
+        src={data.imagePath}
+        alt={data.name}
         width={1000}
         height={1000}
-        className="object-cover w-full h-full"
+        className="object-cover"
+        onError={(e) => {
+          e.currentTarget.src = "/image-error.jpg";
+        }}
       />
-      <CardContent className="pt-5">
-        <h3 className="tracking-wide">{name}</h3>
-        <p className="text-muted-foreground text-sm">{country}</p>
+      <CardContent className="py-4 space-y-2">
+        <h3 className="font-semibold text-lg truncate">{data.name}</h3>
+        <p className="text-sm text-muted-foreground truncate">{data.country}</p>
       </CardContent>
     </Card>
-  );
-};
-
-export const TopDestinationCardSkeleton = () => {
-  return (
-    <div className="space-y-3">
-      <Skeleton className="h-[250px] rounded-md" />
-      <Skeleton className="h-[18px] rounded-md" />
-      <Skeleton className="w-2/3 h-[18px] rounded-md" />
-    </div>
   );
 };
